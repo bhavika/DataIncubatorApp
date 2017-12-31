@@ -11,7 +11,8 @@ def client():
 
 def test_index(client):
     response = client.get('/')
-    assert response is not None
+    html_text = 'Upload an image'
+    assert html_text in str(response.data)
 
 
 def test_upload(client):
