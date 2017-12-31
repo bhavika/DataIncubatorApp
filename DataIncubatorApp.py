@@ -1,6 +1,6 @@
-from flask import Flask, request, send_file, Response, render_template
-from jinja2 import Template, Environment, PackageLoader, select_autoescape
-from base64 import b64encode
+from flask import Flask, request, Response, render_template
+from jinja2 import Environment, PackageLoader, select_autoescape
+
 
 app = Flask(__name__)
 
@@ -19,7 +19,8 @@ def upload():
         imagefile = request.files['picture'].stream
         img = imagefile.getvalue()
         return Response(img, mimetype='image/jpeg')
-    except:
+    except Exception as err:
+        print(err)
         return render_template(env.get_template('picture.html'))
 
 if __name__ == '__main__':
