@@ -1,6 +1,6 @@
 from flask import Flask, request, Response, render_template
 from jinja2 import Environment, PackageLoader, select_autoescape
-
+from io import BytesIO
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ def index():
 def upload():
     env = Environment(loader=PackageLoader('app', 'templates'), autoescape=select_autoescape(['html']))
     try:
-        imagefile = request.files['picture'].stream
+        imagefile = request.files['picture']
         return Response(imagefile.getvalue(), mimetype='image/jpeg')
     except Exception as err:
         print(err)
