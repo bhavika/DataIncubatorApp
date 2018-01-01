@@ -16,8 +16,8 @@ def index():
 def upload():
     env = Environment(loader=PackageLoader('app', 'templates'), autoescape=select_autoescape(['html']))
     try:
-        imagefile = request.files['picture']
-        return Response(imagefile.getvalue(), mimetype='image/jpeg')
+        imagefile = request.files['picture'].read()
+        return Response(imagefile, mimetype='image/jpeg')
     except Exception as err:
         print(err)
         return render_template(env.get_template('picture.html'))
