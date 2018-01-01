@@ -20,5 +20,4 @@ def test_upload(client):
     image_name = b'test'
     data['picture'] = (io.BytesIO(image_name), '/static/test.png')
     response = client.post('/upload', content_type='multipart/form-data', data=data)
-    print(response.data)
-    # assert response.data == image_name
+    assert response.data == image_name

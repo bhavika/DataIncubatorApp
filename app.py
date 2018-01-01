@@ -7,14 +7,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    env = Environment(loader=PackageLoader('DataIncubatorApp', 'templates'), autoescape=select_autoescape(['html']))
+    env = Environment(loader=PackageLoader('app', 'templates'), autoescape=select_autoescape(['html']))
     template = env.get_template('index.html')
     return template.render()
 
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    env = Environment(loader=PackageLoader('DataIncubatorApp', 'templates'), autoescape=select_autoescape(['html']))
+    env = Environment(loader=PackageLoader('app', 'templates'), autoescape=select_autoescape(['html']))
     try:
         imagefile = request.files['picture'].stream
         return Response(imagefile.getvalue(), mimetype='image/jpeg')
