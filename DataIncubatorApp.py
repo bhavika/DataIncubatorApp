@@ -17,8 +17,7 @@ def upload():
     env = Environment(loader=PackageLoader('DataIncubatorApp', 'templates'), autoescape=select_autoescape(['html']))
     try:
         imagefile = request.files['picture'].stream
-        img = imagefile.getvalue()
-        return Response(img, mimetype='image/jpeg')
+        return Response(imagefile.getvalue(), mimetype='image/jpeg')
     except Exception as err:
         print(err)
         return render_template(env.get_template('picture.html'))
