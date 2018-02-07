@@ -1,5 +1,4 @@
 import copy
-import pytest
 
 
 def stable_matching(m_prefs, w_prefs):
