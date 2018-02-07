@@ -6,7 +6,7 @@ def stable_matching(m_prefs, w_prefs):
     women = sorted(w_prefs.keys())
 
     # Initialize all m ∈ m_prefs and w ∈ w_prefs to free
-    men_free = men[:]
+    men_free = men
 
     paired = {}
     m_copy = copy.deepcopy(m_prefs)
@@ -63,4 +63,4 @@ if __name__ == '__main__':
     for k, v in sorted(pairs.items()):
         print(k, v)
 
-    print(isStable(pairs, m_prefs, w_prefs))
+    print("Are the pairs stable?", isStable(pairs, m_prefs, w_prefs))
