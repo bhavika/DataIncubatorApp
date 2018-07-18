@@ -1,4 +1,4 @@
-### Take home project for The Data Incubator - Fullstack Engineer (2017)
+### Fullstack Engineer (2017)
 
 [![Build Status](https://travis-ci.org/bhavika/DataIncubatorApp.svg?branch=master)](https://travis-ci.org/bhavika/DataIncubatorApp)
 
